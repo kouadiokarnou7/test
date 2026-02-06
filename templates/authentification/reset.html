@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+    <div class="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+        <div class="text-center">
+            <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Mot de passe oublié ?</h2>
+            <p class="mt-2 text-sm text-gray-600">Entrez votre email pour recevoir un lien de récupération.</p>
+        </div>
+
+        <div class="mt-8 bg-white py-8 px-4 shadow-xl sm:rounded-2xl sm:px-10 border border-gray-100">
+            <form class="space-y-6" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="id_email" class="block text-sm font-medium text-gray-700">Adresse email</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <input id="id_email" name="email" type="email" required class="appearance-none block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="nom@exemple.com">
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 transition-all">
+                        Envoyer le lien
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
